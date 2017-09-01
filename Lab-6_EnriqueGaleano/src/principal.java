@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /*
@@ -35,6 +36,7 @@ public class principal extends javax.swing.JFrame {
         jd_entrada = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jd_registro = new javax.swing.JDialog();
@@ -59,6 +61,12 @@ public class principal extends javax.swing.JFrame {
         jt_fecha = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jd_redactarMensaje = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jc_EnviarMensaje = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -68,6 +76,15 @@ public class principal extends javax.swing.JFrame {
         jb_registro = new javax.swing.JButton();
 
         jMenu2.setText("Buzon");
+
+        jMenuItem2.setText("Redactar Mensaje");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Listar");
@@ -214,6 +231,53 @@ public class principal extends javax.swing.JFrame {
 
         jTextField4.setText("jTextField4");
 
+        jLabel13.setText("Redactar el Mensaje ");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton1.setText("Actualizar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_redactarMensajeLayout = new javax.swing.GroupLayout(jd_redactarMensaje.getContentPane());
+        jd_redactarMensaje.getContentPane().setLayout(jd_redactarMensajeLayout);
+        jd_redactarMensajeLayout.setHorizontalGroup(
+            jd_redactarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_redactarMensajeLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jd_redactarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jd_redactarMensajeLayout.createSequentialGroup()
+                        .addComponent(jc_EnviarMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139)
+                        .addComponent(jButton1)))
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+        jd_redactarMensajeLayout.setVerticalGroup(
+            jd_redactarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_redactarMensajeLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jd_redactarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jc_EnviarMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -286,13 +350,21 @@ public class principal extends javax.swing.JFrame {
 
     private void jb_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarMouseClicked
 		// TODO add your handling code here:
+		/*boolean presente;
 		AdministrarPersonas aper = new AdministrarPersonas(("./Usuarios.txt"));
+		
 		for (persona p : aper.getListaPersona()) {
 			if (p.getCorreo().equals(jt_correo.getText())) {
-				System.out.println("Entra");
+				presente = true;
 			}
 			
-		}
+			
+		}*/
+		jd_entrada.setModal(true);
+		jd_entrada.pack();
+		jd_entrada.setLocationRelativeTo(this);
+		jd_entrada.setVisible(true);
+		
     }//GEN-LAST:event_jb_guardarMouseClicked
 
     private void jb_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registroMouseClicked
@@ -332,7 +404,7 @@ public class principal extends javax.swing.JFrame {
 		contra = jp_contra.getText();
 		contra2 = jp_confirmacion.getText();
 
-
+	
 		try {
 		AdministrarPersonas aps = new AdministrarPersonas("./Usuarios.txt");
 			aps.CargarArchivo();
@@ -362,6 +434,29 @@ public class principal extends javax.swing.JFrame {
 		}
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+		jd_redactarMensaje.setModal(true);
+		jd_redactarMensaje.pack();
+		jd_redactarMensaje.setLocationRelativeTo(this);
+		jd_redactarMensaje.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+		
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+		DefaultComboBoxModel modelo =  (DefaultComboBoxModel) jc_EnviarMensaje.getModel();
+		AdministrarPersonas per = new AdministrarPersonas(("./Usuarios.txt"));
+		per.CargarArchivo();
+		for (persona p1 : per.getListaPersona()) {
+			modelo.addElement(p1);
+		}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -373,7 +468,7 @@ public class principal extends javax.swing.JFrame {
 		 */
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
+				if ("Windows Classic".equals(info.getName())) {
 					javax.swing.UIManager.setLookAndFeel(info.getClassName());
 					break;
 				}
@@ -398,10 +493,12 @@ public class principal extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -414,14 +511,19 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_registro;
     private javax.swing.JButton jb_registro2;
+    private javax.swing.JComboBox jc_EnviarMensaje;
     private javax.swing.JComboBox jc_pais;
     private javax.swing.JDialog jd_entrada;
     private com.toedter.calendar.JDateChooser jd_fechaDeNacimiento;
+    private javax.swing.JDialog jd_redactarMensaje;
     private javax.swing.JDialog jd_registro;
     private javax.swing.JPasswordField jp_confirmacion;
     private javax.swing.JPasswordField jp_contra;
