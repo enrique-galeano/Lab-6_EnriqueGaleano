@@ -10,12 +10,12 @@
  */
 public class mensaje {
 	private String mensaje;
-	private String estado;
+	private int estado;
 
 	public mensaje() {
 	}
 
-	public mensaje(String mensaje, String estado) {
+	public mensaje(String mensaje, int estado) {
 		this.mensaje = mensaje;
 		this.estado = estado;
 	}
@@ -28,11 +28,11 @@ public class mensaje {
 		this.mensaje = mensaje;
 	}
 
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}	
 

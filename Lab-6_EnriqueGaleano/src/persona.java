@@ -16,7 +16,7 @@ public class persona {
 	private String nombre;
 	private String apellido;
 	private String correo;
-	private Date fecha;
+	private String fecha;
 	private String pais;
 	private int numeroTele;
 	private String contra;
@@ -25,7 +25,7 @@ public class persona {
 	public persona() {
 	}
 
-	public persona(String nombre, String apellido, String correo, Date fecha, String pais, int numeroTele, String contra) {
+	public persona(String nombre, String apellido, String correo, String fecha, String pais, int numeroTele, String contra) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
@@ -59,11 +59,11 @@ public class persona {
 		this.correo = correo;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
