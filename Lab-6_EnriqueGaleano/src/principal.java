@@ -288,9 +288,10 @@ public class principal extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		AdministrarPersonas aper = new AdministrarPersonas(("./Usuarios.txt"));
 		for (persona p : aper.getListaPersona()) {
-			if (p.getCorreo().equals(jt_correo.getText()) && p.getContra().equals(jp_contra.getText())) {
+			if (p.getCorreo().equals(jt_correo.getText())) {
 				System.out.println("Entra");
 			}
+			
 		}
     }//GEN-LAST:event_jb_guardarMouseClicked
 
